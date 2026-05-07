@@ -19,4 +19,18 @@ function validateId(id){
     }
     return null;
 }
-module.exports = {validateStudent, validateId};
+
+function validateFile(file){
+    if(!file) return null;
+    const allowTypes = ["image/jpeg", "image/png"];
+    //validasi type ekstension
+    if(!allowTypes.includes(file.mimetype)){
+        return "Format File harus jpeg atua PNG";
+    }
+//validasi size file
+    if(file.size > 2 * 1024 * 1024){
+        return "ukuran file maksimal 2MB";
+    }
+    return null;
+}
+module.exports = {validateFile, validateStudent, validateId};

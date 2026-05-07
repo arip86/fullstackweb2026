@@ -9,13 +9,16 @@ router.get("/", (req, res) =>{
 });
 const auth = require("../middleware/auth");
 const authorize = require("../middleware/authorize");
+const upload = require("../middleware/upload");
+
 
 router.post("/register", (req, res) =>AuthController.register(req, res));
 router.post("/login", (req, res) =>AuthController.login(req, res));
 
 router.get("/students", auth, authorize("user"), (req, res)=> StudentController.index(req, res));
 router.get("/students/:id", StudentController.show);
-router.post("/students", StudentController.store);
+router.post("/students", auth, authorize("user"), upload.single("photo"), 
+(req, res) => StudentController.store(req, res));
 router.put("/students/:id", StudentController.update);
 router.delete("/students/:id", StudentController.destroy);
 

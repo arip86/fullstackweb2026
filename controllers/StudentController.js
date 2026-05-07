@@ -1,5 +1,5 @@
 const Student = require("../models/Student");
-const {validateStudent, validateId} = require("../utils/validator");
+const {validateStudent, validateId, validateFile} = require("../utils/validator");
 const errorHandler = require("../utils/errorHandler");
 class StudentController{
     index(req, res){
@@ -45,6 +45,12 @@ class StudentController{
             // return res.status(400).json({message: error});
             return errorHandler(res, error, 400, error);
         }
+        //validasi untuk upload file
+        const fileError = validateFile(req.file);
+        if(fileError){
+            return errorHandler(res, fileError, 400, fileError);
+        }
+        data.photo = req.file.filename;
         Student.create(data, (err)=>{
             if(err){
             // return res.status(500).json({message: "Gagal Tambah Data"});
