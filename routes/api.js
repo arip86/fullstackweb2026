@@ -15,7 +15,8 @@ const upload = require("../middleware/upload");
 router.post("/register", (req, res) =>AuthController.register(req, res));
 router.post("/login", (req, res) =>AuthController.login(req, res));
 
-router.get("/students", auth, authorize("user"), (req, res)=> StudentController.index(req, res));
+// router.get("/students", auth, authorize("user"), (req, res)=> StudentController.index(req, res));
+router.get("/students", (req, res)=> StudentController.index(req, res));
 router.get("/students/:id", StudentController.show);
 router.post("/students", auth, authorize("user"), upload.single("photo"), 
 (req, res) => StudentController.store(req, res));
