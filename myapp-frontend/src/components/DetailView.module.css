@@ -1,0 +1,129 @@
+.page__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  padding: 2rem 1rem;
+}
+
+.detail__box {
+  background-color: #282a2d;
+  border: 1px solid #3c4043;
+  padding: 2.5rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 650px;
+  color: #e8eaed;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  position: relative;
+}
+
+.back__button {
+  background-color: #3c4043;
+  color: #e8eaed;
+  border: 1px solid #5f6368;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  margin-bottom: 2rem;
+}
+
+.back__button:hover {
+  background-color: #4f5357;
+  border-color: #8ab4f8;
+}
+
+.detail__title {
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #8ab4f8;
+  font-size: 1.75rem;
+  font-weight: 500;
+  border-bottom: 1px solid #3c4043;
+  padding-bottom: 0.75rem;
+}
+
+.detail__body {
+  display: flex;
+  gap: 2.5rem;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image__container {
+  flex-shrink: 0;
+}
+
+.detail__image {
+  width: 180px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 1px solid #5f6368;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.info__group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  border-bottom: 1px solid #3c4043;
+  padding-bottom: 0.6rem;
+}
+
+.info__group label {
+  font-size: 0.8rem;
+  color: #9aa0a6;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+}
+
+.info__group p {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #e8eaed;
+  font-weight: 500;
+}
+
+.badge__class {
+  display: inline-block;
+  background-color: rgba(138, 180, 248, 0.15);
+  color: #8ab4f8;
+  padding: 0.25rem 0.75rem;
+  border-radius: 4px;
+  width: max-content;
+  font-size: 1rem !important;
+  border: 1px solid rgba(138, 180, 248, 0.3);
+}
+
+.loading, .error {
+  text-align: center;
+  color: #e8eaed;
+  font-size: 1.1rem;
+  margin-top: 5rem;
+}
+
+.error {
+  color: #f28b82;
+}
+
+@media (min-width: 576px) {
+  .detail__body {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
